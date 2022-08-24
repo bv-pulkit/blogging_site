@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+	def current_user
+		@current_user ||= User.find_by(id: session[:user_id])
+	end
+
   def new
     @user = User.new
   end

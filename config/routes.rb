@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-	root "users#index"
+  devise_for :users
+  get 'home/index'
+  devise_for :views
+	root "home#index"
 
 	resources :users do
 		resources :articles
