@@ -1,0 +1,2 @@
+module DeviseUserHelper
+end
