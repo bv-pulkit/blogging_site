@@ -4,8 +4,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:user_id])
-		@article = @user.articles.find(params[:id])
+		@article = Article.find(params[:id])
 	end
 
 	def new
@@ -42,7 +41,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@user = User.find(params[:user_id])
 		@article = @user.articles.find(params[:id])
-		puts "raedy to destroy"
+		puts "ready to destroy"
 		@article.destroy
 
 		redirect_to user_path(@user), status: :see_other;
