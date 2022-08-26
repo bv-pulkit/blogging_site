@@ -15,9 +15,8 @@ class ArticlesController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@article = @user.articles.new(article_params)
-		
 		if @article.save
-		redirect_to user_path(@user)
+			redirect_to user_path(@user)
 		else
 			render :new, status: :unprocessable_entity
 		end
@@ -31,7 +30,6 @@ class ArticlesController < ApplicationController
 	def update
 		@user = User.find(params[:user_id])
 		@article = @user.articles.find(params[:id])
-	
 		if @article.update(article_params)
 			redirect_to user_path(@user)
 		else
@@ -42,9 +40,8 @@ class ArticlesController < ApplicationController
 	def destroy
 		@user = User.find(params[:user_id])
 		@article = @user.articles.find(params[:id])
-		puts "raedy to destroy"
+		puts "ready to destroy"
 		@article.destroy
-
 		redirect_to user_path(@user), status: :see_other;
 	end
 
