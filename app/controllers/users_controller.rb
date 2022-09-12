@@ -3,10 +3,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-	def current_user
-		@current_user ||= User.find_by(id: session[:user_id])
-	end
-
   def new
     @user = User.new
   end
@@ -27,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
-  end
+		params.require(:user).permit(:username, :email, :password)
+	end
 end

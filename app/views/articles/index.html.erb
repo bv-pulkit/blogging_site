@@ -1,6 +1,6 @@
 <h1>User</h1>
 <ul>
-<%= @users.each do |user| %>
-<%= user.email %>
+<% @articles.each do |article| %>
+	<%= link_to article.title, article %><br>
 <% end %>
 </ul>
